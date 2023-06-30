@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navigasi {
+    @apply p-3 py-1 text-sm hover:text-slate-500 font-semibold flex;
+}
+.btn-details {
+    @apply bg-green-600 p-2 text-slate-50 rounded-md flex animate-bounce hover:bg-green-500 mt-[275px] ;
+}
+.paket {
+    @apply w-[370px] p-5 hover:w-[380px];
+}
+.image {
+    @apply static;
+}
