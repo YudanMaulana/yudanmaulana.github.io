@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar {
+  @apply text-slate-100 hover:text-slate-900 leading-relaxed p-4
+}
