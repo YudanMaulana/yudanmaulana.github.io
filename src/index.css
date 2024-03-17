@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .navbar {
-  @apply text-slate-100 hover:text-slate-900 leading-relaxed p-4
+  @apply text-green-900 font-semibold hover:text-green-600 leading-relaxed p-2 transition-all duration-300
 }
