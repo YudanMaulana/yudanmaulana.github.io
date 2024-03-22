@@ -1,9 +1,14 @@
 import './index.css'
 import Imagenav from './Imagenav'
 import gsap from 'gsap';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { FiAlignRight } from "react-icons/fi";
 
-function Navbar() {
+const Navbar = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toogleMenu = () => (
+        setIsOpen(!isOpen)
+    );
     // animasi navbar
     useEffect(() => {
         gsap.set(".navbarnav", { opacity: 0, y: -50 }); // Set keadaan awal
@@ -12,18 +17,21 @@ function Navbar() {
 
     // animasi text-navbar
     useEffect(() => {
-        gsap.from(".navbar-text", { opacity: 0, y: -50, duration: 1, ease: "power3.out" });
+        gsap.from("navbar-text", { opacity: 0, y: -50, duration: 1, ease: "power3.out" });
     }, []);
 
     return (
         <>
-        <nav className='navbarnav flex p-4 text-slate w-screen justify-between bg-white/60 backdrop-blur-md fixed z-[999]'>
+        <nav className='navbarnav  flex p-4 text-slate w-screen justify-between bg-white/60 backdrop-blur-md fixed z-[999]'>
         <Imagenav />
-            <div className='flex'>
-            <a className='navbar .navbar-text' href='#'>Beranda</a>
-            <a className='navbar .navbar-text' href='#'>Artikel</a>
-            <a className='navbar mr-6 .navbar-text' href='#'>Tentang</a>
-            </div>
+            <FiAlignRight onClick={toogleMenu} className='text-3xl md:hidden border-2 border-red-600' />
+            {isOpen && (
+                <div className={`md:flex hidden border-2 border-red-600 items-center ${isOpen ? 'flex' : 'hidden'}`}>
+                <a className='navbar navbar-text' href='#'>Beranda</a>
+                <a className='navbar navbar-text' href='#'>Artikel</a>
+                <a className='navbar mr-6 navbar-text' href='#'>Tentang</a>
+                </div>
+            )}
         </nav>
         </>
     )
